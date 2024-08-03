@@ -71,8 +71,8 @@ window.insertTarefas = async function(id) {
       console.error("Erro ao inserir documentos:", error);
     }
   }
-/*   
-  insertTarefas(); */
+ 
+  insertTarefas(); 
 
 
   // Função para consultar todos os documentos
