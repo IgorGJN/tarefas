@@ -25,15 +25,15 @@ const db = getFirestore(app);
 
   // Dados para inserir
              // Cria um objeto com os dados do formulário
-             const tarefas = {
-                conclusao: formData.get("conclusao") === "on",
-                data: formData.get("data"),
-                localizacao: formData.get("localizacao"),
-                problema: formData.get("problema"),
-                responsavel: formData.get("responsavel")
-            };
+/* const tarefas = {
+  conclusao: formData.get("conclusao") === "on",
+  data: formData.get("data"),
+  localizacao: formData.get("localizacao"),
+  problema: formData.get("problema"),
+  responsavel: formData.get("responsavel")
+}; */
 
-/* const tarefas = [
+const tarefas = [
     {
       id: "2",
       conclusao: "true",
@@ -58,7 +58,7 @@ const db = getFirestore(app);
       problema: "Problema Z",
       responsavel: "Responsável 3"
     }
-  ]; */
+  ]; 
   
   // Função para inserir documentos
 window.insertTarefas = async function(id) {
