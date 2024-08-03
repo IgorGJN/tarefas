@@ -48,6 +48,13 @@ window.deleteTarefa = async function(id) {
   clearTable();
   populateTable();
   }
+
+    // Função para editar um documento
+window.editTarefa = async function(id) {
+// Aqui você pode implementar uma interface para editar os dados
+// Por exemplo, mostrar um formulário pré-preenchido
+alert(`Editar tarefa com ID ${id}. Implemente a função de edição.`);
+  }
   
   // Exemplo de uso
   /*   deleteTarefa("1"); */ // Substitua "2" pelo ID do documento que deseja apagar
@@ -150,11 +157,3 @@ function inserirTarefas() {
 function clearForm() {
   document.getElementById('tarefasForm').reset();
 }
-
-
-// Função para editar um documento (exemplo básico)
-function editTarefa(id) {
-  // Aqui você pode implementar uma interface para editar os dados
-  // Por exemplo, mostrar um formulário pré-preenchido
-  alert(`Editar tarefa com ID ${id}. Implemente a função de edição.`);
-  }
