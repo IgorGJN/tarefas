@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import { getFirestore, collection, getDocs, doc, setDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import { getFirestore, collection, getDocs, doc, setDoc, deleteDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -50,11 +50,32 @@ window.deleteTarefa = async function(id) {
   }
 
     // Função para editar um documento
-window.editTarefa = async function(id) {
-// Aqui você pode implementar uma interface para editar os dados
-// Por exemplo, mostrar um formulário pré-preenchido
-alert(`Editar tarefa com ID ${id}. Implemente a função de edição.`);
-  }
+    window.editTarefa = async function(id) {
+      try {
+        // Obter o documento da tarefa pelo ID
+        const docRef = doc(db, "tarefas", id);
+        const docSnap = await getDoc(docRef);
+    
+        if (docSnap.exists()) {
+          const tarefa = docSnap.data();
+          
+          // Preencher o formulário com os dados da tarefa
+          document.getElementById('conclusao').checked = tarefa.conclusao;
+          document.getElementById('data').value = tarefa.data;
+          document.getElementById('localizacao').value = tarefa.localizacao;
+          document.getElementById('problema').value = tarefa.problema;
+          document.getElementById('responsavel').value = tarefa.responsavel;
+          
+          // Salvar o ID da tarefa em um campo oculto ou variável global
+          document.getElementById('tarefaId').value = id;
+        } else {
+          console.log("Nenhuma tarefa encontrada com esse ID.");
+        }
+      } catch (error) {
+        console.error("Erro ao consultar documento para edição:", error);
+      }
+    }
+    
   
   // Exemplo de uso
   /*   deleteTarefa("1"); */ // Substitua "2" pelo ID do documento que deseja apagar
@@ -148,13 +169,39 @@ function getFormData() {
 }
 
 function inserirTarefas() {
+  const tarefaId = document.getElementById('tarefaId').value;
   const tarefa = getFormData();
-  tarefas.push(tarefa);
+
+  if (tarefaId) {
+    // Se existe um ID, estamos editando uma tarefa existente
+    tarefa.id = tarefaId;
+    atualizarTarefa(tarefa);
+  } else {
+    // Se não há ID, estamos criando uma nova tarefa
+    tarefa.id = Date.now().toString(); // Gerar um ID único com base no timestamp atual
+    tarefas.push(tarefa);
+    incluirTarefas();
+  }
+  
   console.log('Tarefas atualizadas:', tarefas);
-  incluirTarefas();
   clearForm(); // Limpar o formulário após enviar
+}
+
+window.atualizarTarefa = async function(tarefa) {
+  try {
+    // Atualizar o documento da tarefa com os novos dados
+    await setDoc(doc(db, "tarefas", tarefa.id), tarefa);
+    console.log(`Documento com ID ${tarefa.id} atualizado com sucesso!`);
+    
+    clearTable();
+    populateTable();
+  } catch (error) {
+    console.error("Erro ao atualizar documento:", error);
+  }
 }
 
 function clearForm() {
   document.getElementById('tarefasForm').reset();
+  document.getElementById('tarefaId').value = ''; // Resetar o campo oculto do ID
 }
+

@@ -43,3 +43,9 @@ form {
     background-color: #dc3545;
     color: white;
 }
+
+#tarefasForm{
+    z-index: 1;
+    position: absolute;
+    top: 1rem;
+}

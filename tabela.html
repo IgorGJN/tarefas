@@ -4,10 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="tabela.css">
+    <link rel="stylesheet" href="style.css">
     <script type="module" src="main.js"></script>
     <title>Tabela de Tarefas</title>
 </head>
 <body>
+    <form id="tarefasForm">
+        <h1>Formulário de Tarefas</h1>
+        <input type="hidden" id="tarefaId" name="tarefaId">
+        <div class="form-group">
+            <label for="conclusao">Conclusão</label>
+            <input type="checkbox" id="conclusao" name="conclusao">
+        </div>
+        <div class="form-group">
+            <label for="data">Data</label>
+            <input type="date" id="data" name="data" required>
+        </div>
+        <div class="form-group">
+            <label for="localizacao">Localização</label>
+            <input type="text" id="localizacao" name="localizacao" required>
+        </div>
+        <div class="form-group">
+            <label for="problema">Problema</label>
+            <textarea id="problema" name="problema" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="responsavel">Responsável</label>
+            <input type="text" id="responsavel" name="responsavel" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" id="botaoEnviar" onclick="insertTarefas()">Enviar</button>
+            <button type="button" onclick="clearForm()">Limpar</button>
+        </div>
+    </form>
     <div class="container">
         <h1>Tabela de Tarefas</h1>
         <table id="tarefasTable">
