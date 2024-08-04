@@ -1,0 +1,72 @@
+body {
+    display: flex;
+    flex-flow: row nowrap;
+}
+div {
+    height: 15vh;
+    width: 25vw;
+}
+.a {
+/* 1. Paleta com a Cor de Destaque #63AAB0 /*Azul Esverdeado*/ 
+--cor-primaria: #63AAB0; /*Azul Esverdeado*/
+--cor-secundaria:  #FFD166; /*Amarelo Suave*/
+--cor-destaque: #EF476F; /*Rosa Avermelhado*/
+/* Neutros: */
+--neutro1: #F7F7F7; /*Cinza Claro*/
+--neutro2: #333333; /*Cinza Escuro*/
+--neutro3: #FFFFFF; /*Branco*/
+}
+.b {
+/* 2. Paleta com a Cor de Destaque #78824D /*Verde Oliva*/ 
+--cor-primaria: #78824D; /*Verde Oliva*/
+--cor-secundaria:  #A9B89F; /*Verde Claro*/
+--cor-destaque: #FF6F61; /*Vermelho Coral*/
+/* Neutros: */
+--neutro1: #EDEDED; /*Cinza Claro*/
+--neutro2: #4A4A4A; /*Cinza Escuro*/
+--neutro3: #FFFFFF; /*Branco*/
+}
+.c {
+/* 3. Paleta com a Cor de Destaque #E29D4F /*Laranja Suave*/ 
+ --cor-primaria: #E29D4F; /*Laranja Suave*/
+--cor-secundaria:  #F4C68D; /*Bege Claro*/
+--cor-destaque: #2A9D8F; /*Verde Teal*/
+/* Neutros: */
+--neutro1: #F5F5F5; /*Cinza Claro*/
+--neutro2: #2C3E50; /*Cinza Escuro*/
+--neutro3: #FFFFFF; /*Branco*/
+}
+.d {
+/* 4. Paleta Combinando as Três Cores de Destaque /*#63AAB0, #78824D, #E29D4F*/--cor-primaria: #63AAB0; /*Azul Esverdeado*/
+--cor-secundaria:  #78824D; /*Verde Oliva*/
+--cor-destaque: #E29D4F; /*Laranja Suave*/
+/* Neutros: */
+--neutro1: #EFEFEF; /*Cinza Muito Claro*/
+--neutro2: #3B3B3B; /*Cinza Escuro*/
+--neutro3: #FFFFFF; /*Branco*/
+}
+
+.primaria {
+    background-color: var(--cor-primaria)
+}
+.secundaria {
+    background-color: var(--cor-secundaria)
+}
+.destaque {
+    background-color: var(--cor-destaque)
+}
+.neutro1 {
+    background-color: var(--neutro1)
+}
+.neutro2 {
+    background-color: var(--neutro2)
+}
+.neutro3 {
+    background-color: var(--neutro3)
+}
+
+
+
+
+
+

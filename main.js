@@ -59,6 +59,7 @@ alert(`Editar tarefa com ID ${id}. Implemente a função de edição.`);
   // Exemplo de uso
   /*   deleteTarefa("1"); */ // Substitua "2" pelo ID do documento que deseja apagar
 
+  
 
   // Função para preencher a tabela com dados do Firestore
 async function populateTable() {
