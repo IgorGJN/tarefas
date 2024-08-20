@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="tabela.css">
     <link rel="stylesheet" href="style.css">
     <script type="module" src="main.js"></script>
-    <title>Tabela de Tarefas</title>
+<!--     <script type="module" src="script.js"></script>
+ -->    <title>Formulário de Tarefas</title>
 </head>
 <body>
+
     <form id="tarefasForm">
         <h1>Formulário de Tarefas</h1>
-        <input type="hidden" id="tarefaId" name="tarefaId">
         <div class="form-group">
             <label for="conclusao">Conclusão</label>
             <input type="checkbox" id="conclusao" name="conclusao">
@@ -37,26 +37,9 @@
             <button type="button" onclick="clearForm()">Limpar</button>
         </div>
     </form>
-    <div class="container">
-        <h1>Tabela de Tarefas</h1>
-        <table id="tarefasTable">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Conclusão</th>
-                    <th>Data</th>
-                    <th>Localização</th>
-                    <th>Problema</th>
-                    <th>Responsável</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Os dados serão inseridos aqui via JavaScript -->
-            </tbody>
-        </table>
-    </div>
 
+    <div>
+        <a href="tabela.html">Verificar pendências</a>
+    </div>
 </body>
 </html>
-
